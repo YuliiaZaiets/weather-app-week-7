@@ -1,3 +1,14 @@
+function showTemperature(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  temperatureElement.innerHTML = Math.round (response.data.main.temp);
+cityElement.innerHTML = response.data.name;
+}
+let apiKey = "97f8e93f00107773f88eafd933ce86b7";
+let apiUrl =
+  `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(showTemperature);
+
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
