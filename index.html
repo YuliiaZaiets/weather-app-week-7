@@ -26,12 +26,12 @@
                 </div>
             </form>
             <ul>
-                <li id="current-date">Thursday 14:43</li>
-                <li>Partly Cloudy</li>
+                <li id="date">Thursday 14:43</li>
+                <li id="description">Partly Cloudy</li>
             </ul>
             <div class="row">
                 <div class="col-6">
-                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy icon"
+                    <img id="icon" src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy icon"
                         class="weather-icon" />
                     <span id="temperature" class="temperature">19</span>
                     <span class="units">
@@ -42,8 +42,8 @@
                 <div class="col-6">
                     <ul>
                         <li>Precipitation: 0%</li>
-                        <li>Humidity: 77%</li>
-                        <li>Wind: 8 km/h</li>
+                        <li>Humidity: <span id="humidity"></span>%</li>
+                        <li>Wind: <span id="wind"></span> km/h</li>
                     </ul>
                 </div>
                 <small>
