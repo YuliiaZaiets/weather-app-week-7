@@ -31,6 +31,9 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
   temperatureElement.innerHTML = Math.round (response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -56,20 +59,34 @@ function handleSubmit(event) {
   search(searchInput.value);
 }
 
+function followFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector(".temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function followCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector(".temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", handleSubmit);
 
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", followFahrenheit);
 
-function followFahrenheit() {
-  let currentFahrenheitTemp = document.querySelector(".temperature");
-  currentFahrenheitTemp.innerHTML = `66`;
-}
-let followLink = document.querySelector("#fahrenheit-link");
-followLink.addEventListener("click", followFahrenheit);
 
-function followCelsius() {
-  let currentCelsiusTemp = document.querySelector(".temperature");
-  currentCelsiusTemp.innerHTML = `19`;
-}
-let followSecondLink = document.querySelector("#celsius-link");
-followSecondLink.addEventListener("click", followCelsius);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", followCelsius);
+
+
+
