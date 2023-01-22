@@ -37,7 +37,7 @@ li {
 .weather-icon {
     height: 64px;
     width: 64px;
-    margin: 0 5px 40px 0;
+    margin: 0 5px 20px 0;
 }
 
 .temperature {
@@ -57,4 +57,22 @@ li {
 }
 .active {
     color: black;
+}
+.weather-forecast {
+    margin-top: 15px;
+    text-align: center;
+}
+.weather-forecast-date {
+    font-size: 16px;
+    color: #000;
+    opacity: 0.5;
+}
+.weather-forecast-temperatures {
+    font-size: 13px;
+}
+.weather-forecast-temperature-min {
+    opacity: 0.5;
+}
+#description {
+    padding-bottom: 30px;
 }
